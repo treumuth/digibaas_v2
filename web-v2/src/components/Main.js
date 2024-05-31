@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
 	Container,
 	Group,
@@ -20,7 +21,6 @@ const Main = () => {
 	const customTextStyle = {
 		fontSize: '76px',
 		letterSpacing: '-4.4px',
-		marginTop: '100px',
 		// Add any additional styles as needed
 	};
 	const descItems = t('database_desc_list', { returnObjects: true });
@@ -48,18 +48,25 @@ const Main = () => {
 					{t('landing_content')}
 				</Text>
 				<Group justify="center">
-					<Button
-						radius={10}
-						style={{
-							justify: 'center',
-							marginTop: '25px',
-						}}
-						rightSection={
-							<FontAwesomeIcon icon={faArrowAltCircleRight} />
-						}
+					<Link
+						to="/services"
+						style={{ textDecoration: 'none' }}
 					>
-						{t('try_now')}
-					</Button>
+						{' '}
+						{/* Remove text decoration to prevent underline on hover */}
+						<Button
+							radius={10}
+							style={{
+								justify: 'center',
+								marginTop: '25px',
+							}}
+							rightSection={
+								<FontAwesomeIcon icon={faArrowAltCircleRight} />
+							}
+						>
+							{t('try_now')}
+						</Button>
+					</Link>
 				</Group>
 			</Container>
 			<Container>
@@ -101,9 +108,7 @@ const Main = () => {
 					</Card>
 				</SimpleGrid>
 				<Group justify="center">
-					<Text style={{ fontSize: '42px' }}>
-						{t('ordering_title')}
-					</Text>
+					<Text fw={600}>{t('ordering_title')}</Text>
 					<Text
 						size="sm"
 						style={{ paddingLeft: '50px', paddingRight: '50px' }}
