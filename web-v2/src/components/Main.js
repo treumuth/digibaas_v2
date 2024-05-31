@@ -10,10 +10,13 @@ import {
 } from '@mantine/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from './LanguageContext';
+
 const Main = () => {
-	const textWithBreak =
-		'SIHTGRUPPIDE ANDMEBAAS\n330 000\nEesti asutuse kontaktid';
-	const lines = textWithBreak.split('\n');
+	const { language, changeLanguage } = useLanguage();
+	const { t } = useTranslation();
+	const lines = t('landing_title').split('\n');
 
 	const customTextStyle = {
 		fontSize: '76px',
@@ -44,12 +47,7 @@ const Main = () => {
 					size="lg"
 					style={{ paddingLeft: '100px', paddingRight: '100px' }}
 				>
-					Digibaas.ee tagab oma kasutajatele andmete kõrge
-					ajakohasuse, pakkudes värskeid ja täpseid sihtgruppide
-					andmeid. Platvormi regulaarsed uuendused tagavad, et
-					ettevõtted saavad alati ligipääsu kõige aktuaalsematele
-					andmetele, mis on oluline eduka turundustegevuse ja
-					äriotsuste tegemise jaoks.
+					{t('landing_content')}
 				</Text>
 				<Group justify="center">
 					<Button
@@ -62,7 +60,7 @@ const Main = () => {
 							<FontAwesomeIcon icon={faArrowAltCircleRight} />
 						}
 					>
-						Proovi nüüd
+						{t('try_now')}
 					</Button>
 				</Group>
 			</Container>
@@ -118,18 +116,7 @@ const Main = () => {
 							<Text fw={600}>Andmete kvaliteet</Text>
 						</Group>
 
-						<Text size="sm">
-							Ettevõtte e-posti aadress oli meie jaoks peamise
-							tähtsusega info ning seetõttu on e-post alati täidetud.
-							Telefon, aadress, tegevusvaldkond võivad olla kohati
-							tühjad, kui ettevõte neid pole Äriregistrile teatanud.
-							Enamasti on need siiski täidetud. Samad andmed on
-							avalikult saadaval kõikjal avalikes registrites. Kui
-							leiate, et andmebaasis on teie isiklik e-posti aadress,
-							siis järelikult olete selle märkinud oma ettevõtte (või
-							FIE) aadressiks. Ettevõtete (sh FIE) andmete avaldamine
-							on lubatud.
-						</Text>
+						<Text size="sm">{t('data_quality_content')}</Text>
 					</Card>
 				</SimpleGrid>
 				<Group justify="center">
@@ -138,14 +125,7 @@ const Main = () => {
 						size="sm"
 						style={{ paddingLeft: '50px', paddingRight: '50px' }}
 					>
-						Kirjutage meile oma soovidest. Võimalik, et suurt
-						andmestikku on teil raske töödelda. Leiame teile sobiva
-						andmestiku ning saadame teile pakkumise ja huvi korral
-						ettemaksuarve. Vahetult pärast laekumist anname üle
-						andmed. Tavaliselt anname andmed üle e-postiga. Suuremate
-						andmemahtude korral saate andmed alla laadida veebilingi
-						kaudu. Kirjutage ka siis, kui makselingiga tasumise korral
-						soovite arvet.
+						{t('ordering_content')}
 					</Text>
 				</Group>
 			</Container>
