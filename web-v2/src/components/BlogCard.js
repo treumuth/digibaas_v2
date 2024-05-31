@@ -5,16 +5,9 @@ import {
 	Button,
 	Badge,
 	Group,
-	Anchor,
 } from '@mantine/core';
-import { useLocation } from 'react-router-dom';
 
-import { Link } from 'react-router-dom';
-
-function BlogCard({ metadata, articlekey }) {
-	const location = useLocation();
-	const relativeUrl = `${process.env.PUBLIC_URL}${location.pathname}/${articlekey}`;
-
+function BlogCard({ metadata, key }) {
 	return (
 		<div>
 			<Card
@@ -52,17 +45,15 @@ function BlogCard({ metadata, articlekey }) {
 					{metadata.shortsummary}
 				</Text>
 
-				<Link to={relativeUrl}>
-					<Button
-						variant="light"
-						color="blue"
-						fullWidth
-						mt="md"
-						radius="md"
-					>
-						Loe edasi
-					</Button>
-				</Link>
+				<Button
+					variant="light"
+					color="blue"
+					fullWidth
+					mt="md"
+					radius="md"
+				>
+					Loe edasi
+				</Button>
 			</Card>
 		</div>
 	);

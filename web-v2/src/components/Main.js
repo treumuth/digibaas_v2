@@ -10,19 +10,19 @@ import {
 } from '@mantine/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
-import { useTranslation } from 'react-i18next';
-import { useLanguage } from './LanguageContext';
-
 const Main = () => {
-	const { t } = useTranslation();
-	const { language, changeLanguage } = useLanguage();
-	const lines = t('landing_title').split('\n');
+	const textWithBreak =
+		'SIHTGRUPPIDE ANDMEBAAS\n330 000\nEesti asutuse kontaktid';
+	const lines = textWithBreak.split('\n');
+
 	const customTextStyle = {
 		fontSize: '76px',
 		letterSpacing: '-4.4px',
+		marginTop: '100px',
 		// Add any additional styles as needed
 	};
-	const descItems = t('database_desc_list', { returnObjects: true });
+	const andmedOnSeisuga = 'Andmed on seisuga 31. mai 2023';
+
 	return (
 		<>
 			<Container size="xl">
@@ -44,7 +44,12 @@ const Main = () => {
 					size="lg"
 					style={{ paddingLeft: '100px', paddingRight: '100px' }}
 				>
-					{t('landing_content')}
+					Digibaas.ee tagab oma kasutajatele andmete kõrge
+					ajakohasuse, pakkudes värskeid ja täpseid sihtgruppide
+					andmeid. Platvormi regulaarsed uuendused tagavad, et
+					ettevõtted saavad alati ligipääsu kõige aktuaalsematele
+					andmetele, mis on oluline eduka turundustegevuse ja
+					äriotsuste tegemise jaoks.
 				</Text>
 				<Group justify="center">
 					<Button
@@ -57,7 +62,7 @@ const Main = () => {
 							<FontAwesomeIcon icon={faArrowAltCircleRight} />
 						}
 					>
-						{t('try_now')}
+						Proovi nüüd
 					</Button>
 				</Group>
 			</Container>
@@ -72,15 +77,32 @@ const Main = () => {
 							mt="md"
 							mb="xs"
 						>
-							<Text fw={600}>{t('database_desc_title')}</Text>
+							<Text fw={600}>Andmebaasi kirjeldus</Text>
 						</Group>
 
 						<Text size="sm">
-							{t('data_date')}
+							{andmedOnSeisuga}
 							<List>
-								{descItems.map((item, index) => (
-									<List.Item key={index}>{item}</List.Item>
-								))}
+								<List.Item>registrikood;</List.Item>
+								<List.Item>juriidilise isiku nimi;</List.Item>
+								<List.Item>
+									e-posti aadressid (eraldatud komaga);
+								</List.Item>
+								<List.Item>
+									telefoninumbrid (eraldatud komaga);
+								</List.Item>
+								<List.Item>aadress;</List.Item>
+								<List.Item>
+									peamise tegevusvaldkonna nimetus eesti keeles;
+								</List.Item>
+								<List.Item>riiklikud maksud;</List.Item>
+								<List.Item>tööjõumaksud;</List.Item>
+								<List.Item>käive;</List.Item>
+								<List.Item>
+									juhatuse liikme nimi ja isikukood;
+								</List.Item>
+								<List.Item>töötajate arv;</List.Item>
+								<List.Item>setotud kohtulahendid;</List.Item>
 							</List>
 						</Text>
 					</Card>
@@ -93,19 +115,37 @@ const Main = () => {
 							mt="md"
 							mb="xs"
 						>
-							<Text fw={600}>{t('data_quality_title')}</Text>
+							<Text fw={600}>Andmete kvaliteet</Text>
 						</Group>
 
-						<Text size="sm">{t('data_quality_content')}</Text>
+						<Text size="sm">
+							Ettevõtte e-posti aadress oli meie jaoks peamise
+							tähtsusega info ning seetõttu on e-post alati täidetud.
+							Telefon, aadress, tegevusvaldkond võivad olla kohati
+							tühjad, kui ettevõte neid pole Äriregistrile teatanud.
+							Enamasti on need siiski täidetud. Samad andmed on
+							avalikult saadaval kõikjal avalikes registrites. Kui
+							leiate, et andmebaasis on teie isiklik e-posti aadress,
+							siis järelikult olete selle märkinud oma ettevõtte (või
+							FIE) aadressiks. Ettevõtete (sh FIE) andmete avaldamine
+							on lubatud.
+						</Text>
 					</Card>
 				</SimpleGrid>
 				<Group justify="center">
-					<Text fw={600}>{t('ordering_title')}</Text>
+					<Text style={{ fontSize: '42px' }}>Tellimine </Text>
 					<Text
 						size="sm"
 						style={{ paddingLeft: '50px', paddingRight: '50px' }}
 					>
-						{t('ordering_content')}
+						Kirjutage meile oma soovidest. Võimalik, et suurt
+						andmestikku on teil raske töödelda. Leiame teile sobiva
+						andmestiku ning saadame teile pakkumise ja huvi korral
+						ettemaksuarve. Vahetult pärast laekumist anname üle
+						andmed. Tavaliselt anname andmed üle e-postiga. Suuremate
+						andmemahtude korral saate andmed alla laadida veebilingi
+						kaudu. Kirjutage ka siis, kui makselingiga tasumise korral
+						soovite arvet.
 					</Text>
 				</Group>
 			</Container>

@@ -1,3 +1,12 @@
+---
+title: 'Online.ee-st on lahkunud miljonid!'
+date: '2023-11-15'
+author: 'Roomet Sütt'
+tags:
+  - JavaScript
+  - React
+---
+
 # Useful JavaScript Code Snippets
 
 1. Sort an Array

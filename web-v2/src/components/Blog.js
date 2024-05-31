@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, SimpleGrid } from '@mantine/core';
 import BlogCard from './BlogCard';
-import { useLanguage } from './LanguageContext';
+
 // Create a context for the /posts directory
 const blogContext = require.context(
 	'../posts',
@@ -11,7 +11,7 @@ const blogContext = require.context(
 
 const Blog = () => {
 	const [blogPosts, setBlogPosts] = useState([]);
-	const { language, changeLanguage } = useLanguage();
+
 	useEffect(() => {
 		const fetchContent = async () => {
 			const postFiles = blogContext.keys();
@@ -83,10 +83,10 @@ const Blog = () => {
 			>
 				{blogPosts.map((postObject, index) => {
 					const postKey = Object.keys(postObject)[0]; // Assuming there is only one key in each object
-					console.log(postKey);
+
 					return (
 						<BlogCard
-							articlekey={postKey}
+							key={postKey}
 							metadata={postObject[postKey].metadata}
 						/>
 					);

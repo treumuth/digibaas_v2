@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFaceKiss } from '@fortawesome/free-regular-svg-icons';
 
 const logo = require('../logo.svg');
 
@@ -9,25 +11,20 @@ const Navbar = () => {
 			<ul className="navbar-nav">
 				<li className="nav-item">
 					<Link to="/">
-						<img
-							src={logo.default}
-							width="30"
-							height="30"
-							alt="Logo"
-						/>
+						<FontAwesomeIcon icon={faFaceKiss} />
 					</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/blog">Blog</Link>
+					<Link to="/blog">Blogi</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/services">Services</Link>
+					<Link to="/services">Koosta pakk</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/about">About</Link>
+					<Link to="/about">Meist</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/contact">Contact</Link>
+					<Link to="/contact">Kontakt</Link>
 				</li>
 			</ul>
 		</nav>
