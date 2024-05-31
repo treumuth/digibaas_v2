@@ -83,10 +83,10 @@ const Blog = () => {
 			>
 				{blogPosts.map((postObject, index) => {
 					const postKey = Object.keys(postObject)[0]; // Assuming there is only one key in each object
-
+					console.log(postKey);
 					return (
 						<BlogCard
-							key={postKey}
+							articlekey={postKey}
 							metadata={postObject[postKey].metadata}
 						/>
 					);

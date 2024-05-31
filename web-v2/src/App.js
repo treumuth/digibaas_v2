@@ -37,7 +37,7 @@ const App = () => {
 						element={<Carousel />}
 					/>
 					<Route
-						path="/article"
+						path="/blog/:id"
 						element={<Article />}
 					/>
 				</Routes>
