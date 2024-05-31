@@ -11,39 +11,49 @@ const Navbar = () => {
 	const menuOptions = t('navigation', { returnObjects: true });
 
 	return (
-		<nav className="navbar">
-			<ul className="navbar-nav">
-				<li className="nav-item">
-					<Link to="/">
-						<FontAwesomeIcon icon={faFaceKiss} />
-					</Link>
-				</li>
-				<li className="nav-item">
-					<Link to="/blog">{menuOptions.blog}</Link>
-				</li>
-				<li className="nav-item">
-					<Link to="/services">{menuOptions.createPackage}</Link>
-				</li>
-				<li className="nav-item">
-					<Link to="/about">{menuOptions.about}</Link>
-				</li>
-				<li className="nav-item">
-					<Link to="/contact">{menuOptions.contact}</Link>
-				</li>
-				<li>
-					<SegmentedControl
-						color="cyan"
-						value={language}
-						onChange={(value) => changeLanguage(value)}
-						data={[
-							{ value: 'ee', label: 'Eesti' },
-							{ value: 'en', label: 'Inglise' },
-							{ value: 'ru', label: 'Vene' },
-						]}
-					/>
-				</li>
-			</ul>
-		</nav>
+		<>
+			{' '}
+			<SegmentedControl
+				color="cyan"
+				value={language}
+				onChange={(value) => {
+					console.log(`Selected value: ${value}`); // Directly log here for testing
+					changeLanguage(value);
+				}}
+				data={[
+					{
+						value: 'ee',
+						label: (
+							<img
+								src={require('../public/assets/estonia.png')}
+								alt="Estonia"
+								className="flag-image"
+							/>
+						),
+					},
+					{
+						value: 'en',
+						label: (
+							<img
+								src={require('../public/assets/united-kingdom.png')}
+								alt="English"
+								className="flag-image"
+							/>
+						),
+					},
+					{
+						value: 'ru',
+						label: (
+							<img
+								src={require('../public/assets/russia.png')}
+								alt="Russia"
+								className="flag-image"
+							/>
+						),
+					},
+				]}
+			/>
+		</>
 	);
 };
 

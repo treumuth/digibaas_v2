@@ -12,7 +12,8 @@ body {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin: 0;
+	max-width: 85%; /* Adjust the width as needed */
+	margin: auto;
 	height: 800px; /* Adjust the height as needed */
 }
 
@@ -174,6 +175,12 @@ input[type='range']::-webkit-slider-thumb {
 	min-height: 80vh; /* Use min-height to accommodate the image */
 }
 
+img {
+	max-width: 50%;
+	max-height: 50%;
+	object-fit: contain; /* Ensure the image fits without clipping */
+}
+
 .centered-text {
 	padding: 10px;
 	border-radius: 5px;
@@ -188,59 +195,20 @@ input[type='range']::-webkit-slider-thumb {
 /* Add this CSS to your stylesheet (e.g., App.css) */
 
 .flag-image {
-	width: 20px; /* default size */
-	height: 20px;
+  width: 40px; /* default size */
+  height: auto;
 }
 
 /* For smaller viewports */
 @media (max-width: 768px) {
-	.flag-image {
-		width: 15px;
-		height: 15px;
-	}
+  .flag-image {
+    width: 30px;
+  }
 }
 
 /* For even smaller viewports */
 @media (max-width: 480px) {
-	.flag-image {
-		width: 10px;
-		height: 10px;
-	}
-}
-
-.logo {
-	width: 60px;
-	height: 60px;
-	padding: 15%;
-}
-
-@media (max-width: 768px) {
-	.logo {
-		width: 60px;
-		height: 60px;
-		padding: 15%;
-	}
-}
-
-.buttonWithSideBorders {
-	position: relative;
-	border: none;
-}
-
-.buttonWithSideBorders:before,
-.buttonWithSideBorders:after {
-	content: '';
-	position: absolute;
-	top: 25%; /* Adjust the value to control the vertical start position */
-	bottom: 25%; /* Adjust the value to control the vertical end position */
-	width: 1px;
-	background-color: var(--mantine-color-blue-light-color);
-}
-
-.buttonWithSideBorders:before {
-	left: 0;
-}
-
-.buttonWithSideBorders:after {
-	right: 0;
+  .flag-image {
+    width: 20px;
+  }
 }

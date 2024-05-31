@@ -43,12 +43,12 @@ export const LanguageProvider = ({ children }) => {
 					resources: {
 						en: {
 							translation: {
-								navigation: [
-									{ name: 'Blog', path: '/blog' },
-									{ name: 'Create Package', path: '/services' },
-									{ name: 'About Us', path: '/about' },
-									{ name: 'Contact', path: '/contact' },
-								],
+								navigation: {
+									blog: 'Blog',
+									createPackage: 'Create Package',
+									about: 'About Us',
+									contact: 'Contact',
+								},
 								data_date: 'Data as of May 31, 2023',
 								try_now: 'Try now!',
 								landing_title:
@@ -82,13 +82,12 @@ export const LanguageProvider = ({ children }) => {
 						},
 						ee: {
 							translation: {
-								navigation: [
-									{ name: 'Blogi', path: '/blog' },
-									{ name: 'Koosta pakk', path: '/services' },
-									{ name: 'Meist', path: '/about' },
-									{ name: 'Kontakt', path: '/contact' },
-								],
-
+								navigation: {
+									blog: 'Blogi',
+									createPackage: 'Koosta pakk',
+									about: 'Meist',
+									contact: 'Kontakt',
+								},
 								data_date: 'Andmed on seisuga 31. mai 2023',
 								try_now: 'Proovi nüüd!',
 								landing_title:
@@ -122,12 +121,12 @@ export const LanguageProvider = ({ children }) => {
 						},
 						ru: {
 							translation: {
-								navigation: [
-									{ name: 'Блог', path: '/blog' },
-									{ name: 'Создать пакет', path: '/services' },
-									{ name: 'О нас', path: '/about' },
-									{ name: 'Контакт', path: '/contact' },
-								],
+								navigation: {
+									blog: 'Блог',
+									createPackage: 'Создать пакет',
+									about: 'О нас',
+									contact: 'Контакт',
+								},
 								data_date: 'Данные по состоянию на 31 мая 2023 года',
 								try_now: 'Попробуй!',
 								landing_title:
