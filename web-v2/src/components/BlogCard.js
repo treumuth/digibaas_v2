@@ -11,6 +11,8 @@ import { useLocation } from 'react-router-dom';
 
 function BlogCard({ metadata, articlekey }) {
 	const location = useLocation();
+	const relativeUrl = `${process.env.PUBLIC_URL}${location.pathname}/${articlekey}`;
+
 	return (
 		<div>
 			<Card
@@ -49,7 +51,7 @@ function BlogCard({ metadata, articlekey }) {
 				</Text>
 
 				<Anchor
-					href={location.pathname + '/' + articlekey}
+					href={relativeUrl}
 					target="_blank"
 				>
 					<Button
