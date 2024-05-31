@@ -1,47 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFaceKiss } from '@fortawesome/free-regular-svg-icons';
-import { useState } from 'react';
-import { SegmentedControl } from '@mantine/core';
 
 const logo = require('../logo.svg');
 
 const Navbar = () => {
-	const [value, setValue] = useState('ee');
-
-
 	return (
 		<nav className="navbar">
 			<ul className="navbar-nav">
 				<li className="nav-item">
 					<Link to="/">
-						<FontAwesomeIcon icon={faFaceKiss} />
+						<img
+							src={logo.default}
+							width="30"
+							height="30"
+							alt="Logo"
+						/>
 					</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/blog">Blogi</Link>
+					<Link to="/blog">Blog</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/services">Koosta pakk</Link>
+					<Link to="/services">Services</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/about">Meist</Link>
+					<Link to="/about">About</Link>
 				</li>
 				<li className="nav-item">
-					<Link to="/contact">Kontakt</Link>
-				</li>
-				<li>
-					<SegmentedControl
-						color="cyan"
-						value={value}
-						onChange={setValue}
-						data={[
-							{ value: 'ee', label: 'Eesti' },
-							{ value: 'en', label: 'Inglise' },
-							{ value: 'ru', label: 'Vene' },
-						]}
-					/>
+					<Link to="/contact">Contact</Link>
 				</li>
 			</ul>
 		</nav>
