@@ -140,10 +140,6 @@ a:hover {
 	background-color: rgba(101, 230, 123, 0.7);
 }
 
-.extras-container {
-	color: white;
-}
-
 .slider {
 	margin: 10px 0;
 	padding-left: 80px;
@@ -179,12 +175,6 @@ input[type='range']::-webkit-slider-thumb {
 	min-height: 80vh; /* Use min-height to accommodate the image */
 }
 
-img {
-	max-width: 50%;
-	max-height: 50%;
-	object-fit: contain; /* Ensure the image fits without clipping */
-}
-
 .centered-text {
 	padding: 10px;
 	border-radius: 5px;
@@ -194,4 +184,41 @@ img {
 	line-height: 1.267;
 	padding: 0 12%;
 	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Add this CSS to your stylesheet (e.g., App.css) */
+
+.flag-image {
+	width: 20px; /* default size */
+	height: 20px;
+}
+
+/* For smaller viewports */
+@media (max-width: 768px) {
+	.flag-image {
+		width: 15px;
+		height: 15px;
+	}
+}
+
+/* For even smaller viewports */
+@media (max-width: 480px) {
+	.flag-image {
+		width: 10px;
+		height: 10px;
+	}
+}
+
+.logo {
+	width: 60px;
+	height: 60px;
+	padding: 15%;
+}
+
+@media (max-width: 768px) {
+	.logo {
+		width: 60px;
+		height: 60px;
+		padding: 15%;
+	}
 }
