@@ -2,54 +2,65 @@ import { Container, Title, Text } from '@mantine/core';
 
 export const GeneralInfo = () => {
 	return (
-		<Container>
+		<Container size="xs">
 			<Title
 				order={4}
 				align="center"
 			>
-				Getting started
+				Getting Started with Custom Data Packages
 			</Title>
 			<Text
 				align="center"
 				paragraph
 			>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				Suspendisse varius enim in eros elementum tristique.
+				Welcome to our advanced data customization platform, designed
+				to empower your decisions with precisely tailored data.
 			</Text>
 			<Text
 				align="center"
 				paragraph
 			>
-				Duis cursus, mi quis viverra ornare, eros dolor interdum
-				nulla, ut commodo diam libero vitae erat.
+				Our intuitive interface allows you to craft a data package
+				that aligns perfectly with your specific analytical needs.
 			</Text>
 			<Text
 				align="center"
 				paragraph
 			>
-				Aenean faucibus nibh et justo cursus id rutrum lorem
-				imperdiet. Nunc ut sem vitae risus tristique posuere.
+				From market trends to financial statistics, select and combine
+				various data elements to create your ideal dataset.
 			</Text>
 			<Text
 				align="center"
 				paragraph
 			>
-				Aenean faucibus nibh et justo cursus id rutrum lorem
-				imperdiet. Nunc ut sem vitae risus tristique posuere.
+				Experience the power of fine-tuned data. Our system lets you
+				filter out the noise, focusing only on the information crucial
+				for your objectives.
 			</Text>
 			<Text
 				align="center"
 				paragraph
 			>
-				Aenean faucibus nibh et justo cursus id rutrum lorem
-				imperdiet. Nunc ut sem vitae risus tristique posuere.
+				With our user-friendly platform, navigating through complex
+				data becomes simple, ensuring a smooth and efficient data
+				gathering process.
 			</Text>
 			<Text
 				align="center"
 				paragraph
 			>
-				Aenean faucibus nibh et justo cursus id rutrum lorem
-				imperdiet. Nunc ut sem vitae risus tristique posuere.
+				Your data security and performance are our top priority. Enjoy
+				high-speed access and peace of mind with our robust, secure
+				infrastructure.
+			</Text>
+			<Text
+				align="center"
+				paragraph
+			>
+				Embark on your data journey with us. Create a package that
+				meets your exact needs and elevate your business insights
+				today!
 			</Text>
 		</Container>
 	);

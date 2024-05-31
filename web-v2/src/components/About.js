@@ -77,7 +77,6 @@ const About = () => {
 				</Grid.Col>
 
 				<Grid.Col span={4}>
-					<Divider />
 					<Center direction="column">
 						<Stack
 							h={300}
@@ -91,7 +90,6 @@ const About = () => {
 				</Grid.Col>
 
 				<Grid.Col span={4}>
-					<Divider />
 					<Center direction="column">
 						<Stack
 							h={300}
@@ -110,7 +108,6 @@ const About = () => {
 				</Grid.Col>
 
 				<Grid.Col span={4}>
-					<Divider />
 					<Center direction="column">
 						<Stack
 							h={300}

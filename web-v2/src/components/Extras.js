@@ -3,12 +3,15 @@ import {
 	TextInput,
 	NumberInput,
 	Checkbox,
-	Stack,
+	Group,
 } from '@mantine/core';
 
 const Extras = ({ selectedExtras, handleExtrasChange }) => {
 	return (
-		<Stack align="center">
+		<Group
+			direction="row"
+			spacing="md"
+		>
 			<NumberInput
 				label="Annual revenue greater than (EUR):"
 				min={0}
@@ -26,7 +29,7 @@ const Extras = ({ selectedExtras, handleExtrasChange }) => {
 			/>
 
 			<TextInput
-				label="Special requests:"
+				label="Comments:"
 				value={selectedExtras.comments}
 				onChange={(e) =>
 					handleExtrasChange({ comments: e.target.value })
@@ -34,7 +37,7 @@ const Extras = ({ selectedExtras, handleExtrasChange }) => {
 			/>
 
 			<Checkbox
-				label="Include court decisions"
+				label="Court decisions:"
 				checked={selectedExtras.courtDecisions}
 				onChange={(event) =>
 					handleExtrasChange({
@@ -51,7 +54,7 @@ const Extras = ({ selectedExtras, handleExtrasChange }) => {
 				}
 				placeholder="e.g., example.com"
 			/>
-		</Stack>
+		</Group>
 	);
 };
 

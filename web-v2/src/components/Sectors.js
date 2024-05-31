@@ -1,4 +1,7 @@
 import React from 'react';
+import { Grid, Col, Card, Image, Text, Center } from '@mantine/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 
 // Import your logos as objects with keys
 const logos = [
@@ -63,31 +66,55 @@ const logos = [
 		src: require('../public/logos/Transport.png'),
 	},
 ];
+
 const Sectors = ({ selectedSectors, handleSectorChange }) => {
 	return (
-		<div className="sectors-container">
-			<div className="logo-grid">
-				{logos.map((logo) => (
-					<div
-						key={logo.key}
-						className="logo-item"
+		<Grid>
+			{logos.map((logo) => (
+				<Grid.Col
+					span={4}
+					key={logo.key}
+				>
+					{' '}
+					{/* Adjust 'span' based on your layout needs */}
+					<Card
+						shadow="sm"
+						p="lg"
+						radius="md"
+						withBorder
+						onClick={() => handleSectorChange(logo.key)}
+						style={{ cursor: 'pointer' }}
 					>
-						<button
-							className={`sector-button ${
-								selectedSectors.includes(logo.key) ? 'active' : ''
-							}`}
-							onClick={() => handleSectorChange(logo.key)}
-						>
-							<img
+						<Center style={{ position: 'relative' }}>
+							<Image
 								src={logo.src}
 								alt={logo.key}
+								height={80}
+								fit="contain"
 							/>
-							<p>{logo.key}</p>
-						</button>
-					</div>
-				))}
-			</div>
-		</div>
+							{selectedSectors.includes(logo.key) && (
+								<FontAwesomeIcon
+									icon={faCircleCheck}
+									style={{
+										position: 'absolute',
+										top: 10,
+										right: 10,
+										color: 'blue',
+										size: '200%',
+									}}
+								/>
+							)}
+						</Center>
+						<Text
+							align="center"
+							mt="md"
+						>
+							{logo.key}
+						</Text>
+					</Card>
+				</Grid.Col>
+			))}
+		</Grid>
 	);
 };
 

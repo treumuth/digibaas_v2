@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useStepper } from './StepperContext';
 import { AppShell, Stepper } from '@mantine/core';
 import { useLocation } from 'react-router-dom'; // Import useLocation
-import { Progress, Text, Title, Button, Space } from '@mantine/core';
+import { Progress, Text, Title } from '@mantine/core';
 const SidePanel = () => {
 	const {
 		activeStep,
@@ -117,16 +117,6 @@ const SidePanel = () => {
 					1200€
 				</Text>{' '}
 			</Title>
-			<Space h="md" />
-			<Button
-				variant="gradient"
-				className="glowing-button"
-				size="compact-md"
-				radius="lg"
-				gradient={{ from: 'orange', to: 'yellow', deg: 90 }}
-			>
-				Send order
-			</Button>
 		</AppShell.Aside>
 	) : (
 		<></> // Or null for an empty render

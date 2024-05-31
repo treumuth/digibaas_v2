@@ -11,7 +11,6 @@ const Menu = () => {
 	const { language, changeLanguage } = useLanguage();
 
 	const menuOptions = t('navigation', { returnObjects: true });
-	console.log(menuOptions);
 	return (
 		<>
 			<Link to="/">

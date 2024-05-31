@@ -3,5 +3,6 @@
 	"date": "2023-11-15",
 	"shortsummary": "Digibaasid on viimastel aastatel märkimisväärselt populaarsust kogunud, sest need võimaldavad kiiret andmete hõlpsat haldamist ja jagamist digitaalses keskkonnas. Üha kasvav nõudlus tõhusa andmetöötluse järele on teinud digibaasid lahutamatuks osaks ettevõtete, organisatsioonide ja arendajate tegevustest.",
 	"author": "Margus",
+	"headerimage": "test-post/test-post.png",
 	"tags": ["JavaScript", "React"]
 }

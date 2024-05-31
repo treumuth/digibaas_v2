@@ -30,7 +30,6 @@ export const LanguageProvider = ({ children }) => {
 	const [translationsLoaded, setTranslationsLoaded] = useState(false);
 
 	const changeLanguage = (newLanguage) => {
-		console.log(`Changing language to: ${newLanguage}`); // For debugging
 		setLanguage(newLanguage);
 		setTranslationsLoaded(false);
 	};
@@ -43,12 +42,11 @@ export const LanguageProvider = ({ children }) => {
 					resources: {
 						en: {
 							translation: {
-								navigation: {
-									blog: 'Blog',
-									createPackage: 'Create Package',
-									about: 'About Us',
-									contact: 'Contact',
-								},
+								navigation: [
+									{ name: 'Blog', path: '/blog' },
+									{ name: 'Create Package', path: '/services' },
+									{ name: 'About Us', path: '/about' },
+								],
 								data_date: 'Data as of May 31, 2023',
 								try_now: 'Try now!',
 								landing_title:
@@ -82,12 +80,12 @@ export const LanguageProvider = ({ children }) => {
 						},
 						ee: {
 							translation: {
-								navigation: {
-									blog: 'Blogi',
-									createPackage: 'Koosta pakk',
-									about: 'Meist',
-									contact: 'Kontakt',
-								},
+								navigation: [
+									{ name: 'Blogi', path: '/blog' },
+									{ name: 'Koosta pakk', path: '/services' },
+									{ name: 'Meist', path: '/about' },
+								],
+
 								data_date: 'Andmed on seisuga 31. mai 2023',
 								try_now: 'Proovi nüüd!',
 								landing_title:
@@ -121,12 +119,11 @@ export const LanguageProvider = ({ children }) => {
 						},
 						ru: {
 							translation: {
-								navigation: {
-									blog: 'Блог',
-									createPackage: 'Создать пакет',
-									about: 'О нас',
-									contact: 'Контакт',
-								},
+								navigation: [
+									{ name: 'Блог', path: '/blog' },
+									{ name: 'Создать пакет', path: '/services' },
+									{ name: 'О нас', path: '/about' },
+								],
 								data_date: 'Данные по состоянию на 31 мая 2023 года',
 								try_now: 'Попробуй!',
 								landing_title:

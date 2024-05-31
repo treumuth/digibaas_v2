@@ -9,10 +9,12 @@ import {
 } from '@mantine/core';
 import { useLocation } from 'react-router-dom';
 
-function BlogCard({ metadata, articlekey }) {
-	const location = useLocation();
-	const relativeUrl = `${process.env.PUBLIC_URL}${location.pathname}/${articlekey}`;
+import { Link } from 'react-router-dom';
 
+function BlogCard({ metadata, articlekey, articleimage }) {
+	const location = useLocation();
+	const relativeUrl = `${location.pathname}/${articlekey}`;
+	const image = require(`../public/posts/${metadata.headerimage}`);
 	return (
 		<div>
 			<Card
@@ -23,7 +25,7 @@ function BlogCard({ metadata, articlekey }) {
 			>
 				<Card.Section>
 					<Image
-						src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
+						src={image}
 						height={200}
 						alt="Norway"
 					/>
@@ -46,14 +48,12 @@ function BlogCard({ metadata, articlekey }) {
 				<Text
 					size="sm"
 					c="dimmed"
+					lineClamp={4}
 				>
 					{metadata.shortsummary}
 				</Text>
 
-				<Anchor
-					href={relativeUrl}
-					target="_blank"
-				>
+				<Link to={relativeUrl}>
 					<Button
 						variant="light"
 						color="blue"
@@ -63,7 +63,7 @@ function BlogCard({ metadata, articlekey }) {
 					>
 						Loe edasi
 					</Button>
-				</Anchor>
+				</Link>
 			</Card>
 		</div>
 	);

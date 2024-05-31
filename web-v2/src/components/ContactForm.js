@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
-import {
-	TextInput,
-	Button,
-	Stack,
-	Notification,
-} from '@mantine/core';
+import { TextInput, Button, Group } from '@mantine/core';
 
 export const ContactForm = () => {
 	const [formData, setFormData] = useState({
@@ -23,7 +18,10 @@ export const ContactForm = () => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<Stack align="center">
+			<Group
+				direction="column"
+				spacing="md"
+			>
 				<TextInput
 					label="Name"
 					value={formData.name}
@@ -46,12 +44,7 @@ export const ContactForm = () => {
 					required
 					type="tel"
 				/>
-				<Notification title="Your personal information">
-					Digibaas will never misuse your personal information.
-					<br />
-					Your contact info is used strictly for the order only.
-				</Notification>
-			</Stack>
+			</Group>
 		</form>
 	);
 };
