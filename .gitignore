@@ -11,5 +11,3 @@
 /.idea
 /database/daily updater/result
 /database/daily updater/__pycache__
-/database/daily updater/kohtulahendid/cleaned.csv
-/database/daily updater/kohtulahendid/lahendid.json
