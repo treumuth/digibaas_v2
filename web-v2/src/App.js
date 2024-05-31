@@ -7,7 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import '@mantine/core/styles.css';
 import { MantineProvider, createTheme } from '@mantine/core';
 import Article from './components/Article';
-import { LanguageProvider } from './components/LanguageContext';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
 
 const theme = createTheme({
 	fontFamily: 'Inter var',
@@ -21,11 +22,10 @@ const App = () => {
 		process.env.NODE_ENV === undefined
 			? '/'
 			: '/web2/digibaas/web-v2/build';
-
 	return (
-		<LanguageProvider>
-			<BrowserRouter basename={basename}>
-				<MantineProvider theme={theme}>
+		<BrowserRouter basename={basename}>
+			<MantineProvider theme={theme}>
+				<I18nextProvider i18n={i18n}>
 					<Navbar />
 					<Routes>
 						<Route
@@ -45,9 +45,9 @@ const App = () => {
 							element={<Article />}
 						/>
 					</Routes>
-				</MantineProvider>
-			</BrowserRouter>
-		</LanguageProvider>
+				</I18nextProvider>
+			</MantineProvider>
+		</BrowserRouter>
 	);
 };
 
