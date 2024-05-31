@@ -1,0 +1,15 @@
+/database/tasuline (seisuga 3. veebruar 2023)/
+/database/tasuta näidised (seisuga 3. veebruar 2023)/
+/database/peamised tulemusfailid/
+/database/tellijale/
+/database/final.csv
+/database/juhatuse_liikmed.csv
+/database/synnipaev_asutusel_05_09.csv
+/database/synnipaev_juhatusel_05_09.csv
+/database/synnipaevalapsed.csv
+/venv/
+/.idea
+/database/daily updater/result
+/database/daily updater/__pycache__
+/database/daily updater/kohtulahendid/cleaned.csv
+/database/daily updater/kohtulahendid/lahendid.json
