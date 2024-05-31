@@ -47,7 +47,6 @@ const Map = ({ selectedCounties, setSelectedCounties }) => {
 
 			mapRef.current.on('style.load', () => {
 				updateMapLayerDataCondition();
-				console.log('loaded');
 				mapRef.current.addControl(
 					new mapboxgl.NavigationControl(),
 					'bottom-right'

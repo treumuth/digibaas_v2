@@ -1,32 +1,46 @@
-import React from 'react';
-
-const logo = require('../logo.svg');
-
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFaceKiss } from '@fortawesome/free-regular-svg-icons';
+import React, { createContext, useContext, useState } from 'react';
+import { SegmentedControl } from '@mantine/core';
+import { useLanguage } from './LanguageContext';
+import { useTranslation } from 'react-i18next';
 const Navbar = () => {
+	const { language, changeLanguage } = useLanguage();
+	const { t } = useTranslation();
+	const menuOptions = t('navigation', { returnObjects: true });
+
 	return (
 		<nav className="navbar">
 			<ul className="navbar-nav">
 				<li className="nav-item">
-					<a href="/">
-						<img
-							src={logo.default}
-							width="30"
-							height="30"
-							alt="Logo"
-						/>
-					</a>
+					<Link to="/">
+						<FontAwesomeIcon icon={faFaceKiss} />
+					</Link>
 				</li>
 				<li className="nav-item">
-					<a href="/blog">Blog</a>
+					<Link to="/blog">{menuOptions.blog}</Link>
 				</li>
 				<li className="nav-item">
-					<a href="/services">Services</a>
+					<Link to="/services">{menuOptions.createPackage}</Link>
 				</li>
 				<li className="nav-item">
-					<a href="/about">About</a>
+					<Link to="/about">{menuOptions.about}</Link>
 				</li>
 				<li className="nav-item">
-					<a href="/contact">Contact</a>
+					<Link to="/contact">{menuOptions.contact}</Link>
+				</li>
+				<li>
+					<SegmentedControl
+						color="cyan"
+						value={language}
+						onChange={(value) => changeLanguage(value)}
+						data={[
+							{ value: 'ee', label: 'Eesti' },
+							{ value: 'en', label: 'Inglise' },
+							{ value: 'ru', label: 'Vene' },
+						]}
+					/>
 				</li>
 			</ul>
 		</nav>

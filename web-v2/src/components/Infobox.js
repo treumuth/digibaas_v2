@@ -4,6 +4,7 @@ const Infobox = ({
 	selectedCounties,
 	selectedSectors,
 	selectedExtras,
+	companySum,
 }) => {
 	return (
 		<>
@@ -55,6 +56,7 @@ const Infobox = ({
 						}
 						return null; // Skip rendering if the value is null
 					})}
+					<p>Ettevõtteid kokku: ~{companySum}</p>
 				</div>
 			</div>
 		</>

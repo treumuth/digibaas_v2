@@ -1,23 +1,98 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Container, SimpleGrid } from '@mantine/core';
+import BlogCard from './BlogCard';
+import { useLanguage } from './LanguageContext';
+// Create a context for the /posts directory
+const blogContext = require.context(
+	'../posts',
+	true,
+	/\.\/.+\/.+\.(json|md)$/
+);
 
-const Blog = ({ text }) => {
+const Blog = () => {
+	const [blogPosts, setBlogPosts] = useState([]);
+	const { language, changeLanguage } = useLanguage();
+	useEffect(() => {
+		const fetchContent = async () => {
+			const postFiles = blogContext.keys();
+
+			const postsArray = await Promise.all(
+				postFiles.map(async (postFile) => {
+					const folder = postFile
+						.replace('./', '')
+						.replace(/\.(json|md)$/, '')
+						.split('/')[0];
+
+					let postObject = blogPosts.find(
+						(post) => Object.keys(post)[0] === folder
+					);
+
+					if (!postObject) {
+						postObject = {};
+						postObject[folder] = {
+							metadata: null,
+							content: null,
+						};
+					}
+
+					if (postFile.endsWith('.json')) {
+						const metadata = require(`../posts/${folder}/${folder}.json`);
+						postObject[folder].metadata = metadata;
+					} else if (postFile.endsWith('.md')) {
+						const contentModule = await import(
+							`!!raw-loader!../posts/${folder}/${folder}.md`
+						);
+						postObject[folder].content = contentModule.default;
+					}
+
+					return postObject;
+				})
+			);
+
+			const mergedData = postsArray.reduce((result, current) => {
+				const key = Object.keys(current)[0]; // Assuming each object has only one key
+				const existingObject = result.find(
+					(obj) => Object.keys(obj)[0] === key
+				);
+
+				if (existingObject) {
+					// Merge metadata and content
+					existingObject[key].metadata =
+						existingObject[key].metadata || current[key].metadata;
+					existingObject[key].content =
+						existingObject[key].content || current[key].content;
+				} else {
+					// If the key doesn't exist in the result array, add the current object
+					result.push(current);
+				}
+
+				return result;
+			}, []);
+
+			setBlogPosts(mergedData);
+		};
+
+		fetchContent();
+	}, []); // eslint-disable-line react-hooks/exhaustive-deps
+
 	return (
-		<div>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-			nec justo ultricies, fermentum erat vitae, rutrum ligula. Duis
-			bibendum dui ac sem pellentesque volutpat. Pellentesque
-			malesuada pharetra aliquam. Mauris dictum nec mauris vel
-			vestibulum. Pellentesque ut luctus turpis. Nullam iaculis nec
-			orci in pharetra. Maecenas aliquam mauris ut sapien iaculis, ac
-			pharetra quam pulvinar. Ut porttitor mauris eu lacus faucibus,
-			eget euismod lectus venenatis. Mauris vel dui eu mi vehicula
-			fermentum pharetra sed elit. Ut interdum augue vitae efficitur
-			aliquam. In dolor dolor, feugiat et ipsum sollicitudin, maximus
-			dapibus lectus. Curabitur eget nisi at ipsum porttitor porta.
-			Nam facilisis dolor vel hendrerit blandit. Aenean quis mauris
-			orci. Vestibulum sed sodales sem, in elementum mi. Nullam
-			hendrerit posuere elit non maximus.
-		</div>
+		<Container size="xl">
+			<SimpleGrid
+				cols={2}
+				align="center"
+			>
+				{blogPosts.map((postObject, index) => {
+					const postKey = Object.keys(postObject)[0]; // Assuming there is only one key in each object
+					console.log(postKey);
+					return (
+						<BlogCard
+							articlekey={postKey}
+							metadata={postObject[postKey].metadata}
+						/>
+					);
+				})}
+			</SimpleGrid>
+		</Container>
 	);
 };
 
