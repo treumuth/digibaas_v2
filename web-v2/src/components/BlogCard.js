@@ -11,10 +11,10 @@ import { useLocation } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
 
-function BlogCard({ metadata, articlekey, articleimage }) {
+function BlogCard({ metadata, articlekey }) {
 	const location = useLocation();
 	const relativeUrl = `${location.pathname}/${articlekey}`;
-	const image = require(`../public/posts/${metadata.headerimage}`);
+
 	return (
 		<div>
 			<Card
@@ -25,7 +25,7 @@ function BlogCard({ metadata, articlekey, articleimage }) {
 			>
 				<Card.Section>
 					<Image
-						src={image}
+						src="https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
 						height={200}
 						alt="Norway"
 					/>
@@ -48,7 +48,6 @@ function BlogCard({ metadata, articlekey, articleimage }) {
 				<Text
 					size="sm"
 					c="dimmed"
-					lineClamp={4}
 				>
 					{metadata.shortsummary}
 				</Text>
