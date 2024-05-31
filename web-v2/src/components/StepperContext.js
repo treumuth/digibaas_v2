@@ -15,14 +15,12 @@ export const StepperProvider = ({ children }) => {
 	const [isAsideVisible, setIsAsideVisible] = useState(false);
 	const [activeStep, setActiveStep] = useState(0);
 	const [selectedSectors, setSelectedSectors] = useState([]);
-	const [contactForm, setContactForm] = useState();
 	const [selectedCounties, setSelectedCounties] = useState(['']);
 	const [selectedExtras, setSelectedExtras] = useState({
 		workers: null,
 		revenue: null,
 		comments: null,
 		courtDecisions: false,
-		excludedDomain: null,
 	});
 	const [companySum, setCompanySum] = useState();
 
@@ -39,44 +37,6 @@ export const StepperProvider = ({ children }) => {
 				: [...prevSectors, sector]
 		);
 	};
-	const reqHeaders = new Headers();
-	reqHeaders.append('Content-Type', 'application/json');
-
-	const submitOrder = () => {
-		const payload = JSON.stringify({
-			...contactForm, // assuming contactForm contains fields like name, email, phoneNumber
-			workers: selectedExtras.workers,
-			revenue: selectedExtras.revenue,
-			comments: selectedExtras.comments,
-			courtDecisions: selectedExtras.courtDecisions,
-			excludedDomain: selectedExtras.excludedDomain,
-			piirkond: selectedCounties.filter((county) => county !== ''), // filter out any empty strings
-			yld_tegevus: selectedSectors,
-		});
-		const requestOptions = {
-			method: 'POST',
-			headers: reqHeaders,
-			body: payload,
-			redirect: 'follow',
-		};
-		console.log(payload);
-		// Make the POST request
-		fetch('https://digibaas.ee/tellimus.php', requestOptions)
-			.then((response) => {
-				if (!response.ok) {
-					console.error('Server error:', response.statusText);
-					return;
-				}
-				return response.json();
-			})
-			.then((data) => {
-				console.log(data);
-				// Handle the response data here, e.g., update your component state with the received data
-			})
-			.catch((error) => {
-				console.error('Error:', error);
-			});
-	};
 
 	// Handle extras change
 	const handleExtrasChange = (extras) => {
@@ -85,6 +45,9 @@ export const StepperProvider = ({ children }) => {
 			...extras,
 		}));
 	};
+
+	const reqHeaders = new Headers();
+	reqHeaders.append('Content-Type', 'application/json');
 
 	useEffect(() => {
 		const timerId = setTimeout(() => {
@@ -139,9 +102,6 @@ export const StepperProvider = ({ children }) => {
 		companySum,
 		isAsideVisible,
 		setIsAsideVisible,
-		contactForm,
-		setContactForm,
-		submitOrder,
 	};
 
 	return (

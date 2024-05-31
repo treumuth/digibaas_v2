@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import '@mantine/core/styles.css';
 import { Button, Space } from '@mantine/core';
-import LogoSvg from '../public/assets/logo_ilma_tekstita.svg';
+import LogoSvg from '../public/assets/logo_ilma_digibaasita.svg';
 const Menu = () => {
 	const { t } = useTranslation();
 
@@ -21,14 +21,23 @@ const Menu = () => {
 					className="logo"
 				/>
 			</Link>
-			<Space w="lg" />
+			<Space w="xl" />
+			<Space w="md" />
 			{menuOptions.map((option, index) => (
-				<Link
-					key={index}
-					to={option.path}
-				>
-					<Button variant="filled">{option.name}</Button>
-				</Link>
+				<>
+					<Link
+						key={index}
+						to={option.path}
+					>
+						<Button
+							className="buttonWithSideBorders"
+							variant="transparent"
+						>
+							{option.name}
+						</Button>
+					</Link>
+					<Space w="sm"></Space>
+				</>
 			))}
 		</>
 	);

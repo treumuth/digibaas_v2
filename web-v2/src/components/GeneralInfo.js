@@ -1,6 +1,6 @@
 import { Container, Title, Text } from '@mantine/core';
 
-export const ContactForm = () => {
+export const GeneralInfo = () => {
 	return (
 		<Container>
 			<Title

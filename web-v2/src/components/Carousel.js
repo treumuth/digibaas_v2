@@ -16,8 +16,6 @@ const Carousel = () => {
 		handleSectorChange,
 		selectedExtras,
 		handleExtrasChange,
-		contactForm,
-		setContactForm
 	} = useStepper();
 
 	return (
@@ -45,10 +43,7 @@ const Carousel = () => {
 					handleExtrasChange={handleExtrasChange}
 				/>
 			)}
-			{activeStep === 4 && <ContactForm
-				contactForm={contactForm}
-				setContactForm={setContactForm}
-			/>}
+			{activeStep === 4 && <ContactForm />}
 		</Container>
 	);
 };

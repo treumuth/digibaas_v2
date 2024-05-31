@@ -20,7 +20,6 @@ const Main = () => {
 	const customTextStyle = {
 		fontSize: '76px',
 		letterSpacing: '-4.4px',
-		marginTop: '100px',
 		// Add any additional styles as needed
 	};
 	const descItems = t('database_desc_list', { returnObjects: true });

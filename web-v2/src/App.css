@@ -12,8 +12,7 @@ body {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	max-width: 85%; /* Adjust the width as needed */
-	margin: auto;
+	margin: 0;
 	height: 800px; /* Adjust the height as needed */
 }
 
@@ -221,4 +220,27 @@ input[type='range']::-webkit-slider-thumb {
 		height: 60px;
 		padding: 15%;
 	}
+}
+
+.buttonWithSideBorders {
+	position: relative;
+	border: none;
+}
+
+.buttonWithSideBorders:before,
+.buttonWithSideBorders:after {
+	content: '';
+	position: absolute;
+	top: 25%; /* Adjust the value to control the vertical start position */
+	bottom: 25%; /* Adjust the value to control the vertical end position */
+	width: 1px;
+	background-color: var(--mantine-color-blue-light-color);
+}
+
+.buttonWithSideBorders:before {
+	left: 0;
+}
+
+.buttonWithSideBorders:after {
+	right: 0;
 }
